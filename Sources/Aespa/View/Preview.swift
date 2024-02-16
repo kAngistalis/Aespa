@@ -65,7 +65,9 @@ class LayerAdjustingViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
-        rotatePreviewLayer(to: size)
+        coordinator.animate { context in
+            self.rotatePreviewLayer(to: size)
+        }
     }
     
     private func rotatePreviewLayer(to size: CGSize) {
@@ -87,6 +89,7 @@ class LayerAdjustingViewController: UIViewController {
                 break
         }
         
+        print(size)
         self.previewLayer.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
     }
 }
