@@ -66,7 +66,7 @@ class LayerAdjustingViewController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         
         coordinator.animate { context in
-            self.rotatePreviewLayer(to: size)
+            self.rotatePreviewLayer(to: UIScreen.main.bounds.size)
         }
     }
     
